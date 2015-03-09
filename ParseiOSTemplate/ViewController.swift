@@ -13,6 +13,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //Below is a test of whether your integration went thru, feel free to delete this before or after initial testing
+        
+        var test = PFObject(className: "Test")
+        test["success"] = "success"
+        test.saveInBackgroundWithBlock { (success:Bool!, error: NSError!) -> Void in
+            if error == nil {
+                println("parse integration was a success")
+            } else {
+                println("parse was a fail")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
